@@ -2,7 +2,7 @@
 	<div class="container">
 
 		<h1 class="jumbotron-heading white">Dynastipi</h1>
-		<p class="lead white">Suis l'évolution de ta tribu et de tous leurs ancêtres, en 1 clic !</p>
+		<p class="lead white">Un aperçu de l'évolution de ta tribu en 1 clic !</p>
 		<p>
 			<a href="#" class="btn btn-primary my-2">La liste</a>
 			<a href="#" class="btn btn-secondary my-2">La carte</a>
@@ -30,7 +30,7 @@
 					</div>
 					<!--end of col-->
 					<div class="col-auto">
-						<%= submit_tag('Rechercher', :class=>"btn btn-lg btn-success") %>
+						<%= submit_tag('Rechercher', :class=>"btn btn-lg btn-success search-btn") %>
 					</div>
 					<!--end of col-->
 					<% end %>
@@ -62,7 +62,7 @@
 				<td><%= member.name %></td>
 				<td><%= member.surname %></td>
 				<td><%= member.birthdate.strftime("%d/%m/%Y") %></td>
-				<td><%= member.ancestor%></td>
+				<td><%= TribeMember.find(member.ancestor).name + ' ' + TribeMember.find(member.ancestor).surname %></td>
 			</tr>
 			<%end%>
 		</tbody>
