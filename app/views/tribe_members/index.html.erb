@@ -4,15 +4,15 @@
 		<h1 class="jumbotron-heading white">Dynastipi</h1>
 		<p class="lead white">Un aperçu de l'évolution de ta tribu en 1 clic !</p>
 		<p>
-			<a href="#" class="btn btn-primary my-2">La liste</a>
-			<a href="#" class="btn btn-secondary my-2">La carte</a>
+      <a><%= link_to 'La liste', root_path(@root, anchor: 'list-anchor'), class:"btn btn-primary my-2"%>
+      <a><%= link_to 'La carte', root_path(@root, anchor: 'map-anchor'), class:"btn btn-secondary my-2"%>
 		</p>
 	</div>
 </section>
 
 <div class="container">
 
-	<center><h3>La liste des membres </h3></center>
+	<center><h3 id="list-anchor">La liste des membres </h3></center>
 	<hr>
 	<br>
 
@@ -76,7 +76,7 @@
 	<br> 
 	<br>
 
-	<center><h3>La carte des membres </h3></center>
+	<center><h3 id="map-anchor">La carte des membres </h3></center>
 	<hr>
 	<br>
 	
