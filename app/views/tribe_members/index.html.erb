@@ -1,40 +1,80 @@
 <section class="jumbotron text-center jumbotron-img">
-  <div class="container">
-    
-    <h1 class="jumbotron-heading white">Dynastipi</h1>
-    <p class="lead white">Fais le tour de ta tribu et de tous leurs ancêtres, en 1 clic !</p>
-    <p>
-      <a href="#" class="btn btn-primary my-2">La liste</a>
-      <a href="#" class="btn btn-secondary my-2">La carte</a>
-    </p>
-  </div>
+	<div class="container">
+
+		<h1 class="jumbotron-heading white">Dynastipi</h1>
+		<p class="lead white">Suis l'évolution de ta tribu et de tous leurs ancêtres, en 1 clic !</p>
+		<p>
+			<a href="#" class="btn btn-primary my-2">La liste</a>
+			<a href="#" class="btn btn-secondary my-2">La carte</a>
+		</p>
+	</div>
 </section>
 
 <div class="container">
-	<h4>Membres de la tribu </h4>
+
+	<center><h3>La liste des membres </h3></center>
+	<hr>
+	<br>
+
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-10 col-lg-8">
+			<div class="card card-sm">
+				<div class="card-body row no-gutters align-items-center">
+					<div class="col-auto">
+					</div>
+					<!--end of col-->
+					<div class="col">
+
+						<%= form_tag tribe_members_path, method: :get do %>
+						<%= text_field_tag :search, "", placeholder:'Rechercher un membre', class: "form-control form-control-lg form-control-borderless" %>
+					</div>
+					<!--end of col-->
+					<div class="col-auto">
+						<%= submit_tag('Rechercher', :class=>"btn btn-lg btn-success") %>
+					</div>
+					<!--end of col-->
+					<% end %>
+
+				</div>
+			</div>
+		</div>
+		<!--end of col-->
+	</div>
+<br>
+
+
 	<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-	  <thead>
-	    <tr>
-	      <th class="th-sm">Nom
-	      </th>
-	      <th class="th-sm">Prénom
-	      </th>
-	      <th class="th-sm">Date de naissance
-	      </th>
-	      <th class="th-sm">Ancêtre
-	      </th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <tr>
-	    	<% @tribe_members.each do |member| %>
-	      <td><%= member.name %></td>
-	      <td><%= member.surname %></td>
-	      <td><%= member.birthdate.strftime("%d/%m/%Y") %></td>
-	      <td><%= member.ancestor%></td>
-	    </tr>
-	    <%end%>
-	  </tbody>
+		<thead>
+			<tr>
+				<th class="th-sm">Nom
+				</th>
+				<th class="th-sm">Prénom
+				</th>
+				<th class="th-sm">Date de naissance
+				</th>
+				<th class="th-sm">Ancêtre
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @tribe_members.each do |member| %>
+				<td><%= member.name %></td>
+				<td><%= member.surname %></td>
+				<td><%= member.birthdate.strftime("%d/%m/%Y") %></td>
+				<td><%= member.ancestor%></td>
+			</tr>
+			<%end%>
+		</tbody>
 	</table>
- 	<%= paginate @tribe_members %>
+	<%= paginate @tribe_members %>
+
+<br> 
+<br>
+
+	<center><h3>La carte des membres </h3></center>
+	<hr>
+	<br>
+
+
 </div>
