@@ -1,5 +1,6 @@
 <section class="jumbotron text-center jumbotron-img">
   <div class="container">
+    
     <h1 class="jumbotron-heading white">Dynastipi</h1>
     <p class="lead white">Fais le tour de ta tribu et de tous leurs ancêtres, en 1 clic !</p>
     <p>
@@ -29,22 +30,11 @@
 	    	<% @tribe_members.each do |member| %>
 	      <td><%= member.name %></td>
 	      <td><%= member.surname %></td>
-	      <td><%= member.birthdate %></td>
+	      <td><%= member.birthdate.strftime("%d/%m/%Y") %></td>
 	      <td><%= member.ancestor%></td>
 	    </tr>
 	    <%end%>
 	  </tbody>
-	  <tfoot>
-	    <tr>
-	      <th>Nom
-	      </th>
-	      <th>Prénom
-	      </th>
-	      <th>Date de naissance
-	      </th>
-	      <th>Ancêtre
-	      </th>
-	    </tr>
-	  </tfoot>
 	</table>
+ 	<%= paginate @tribe_members %>
 </div>
