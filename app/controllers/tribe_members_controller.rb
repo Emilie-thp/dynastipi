@@ -35,7 +35,7 @@ class TribeMembersController < ApplicationController
 
 
   def member_params
-  	params.permit(:name, :surname, :birthdate, :ancestor, :longitude, :latitude)
+  	params.require(:tribe_member).permit(:name, :surname, :birthdate, :ancestor, :longitude, :latitude)
 	end
 
   #to find ids of ancestors from their name or surname
