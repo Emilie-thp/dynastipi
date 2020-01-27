@@ -29,6 +29,12 @@ class TribeMembersController < ApplicationController
     end
   end
 
+  def stat
+    @total = TribeMember.all.length
+    @age_array = age_array
+    @average = average(@age_array)
+    @oldest = @age_array.max
+  end
 
 
   private 
@@ -41,6 +47,22 @@ class TribeMembersController < ApplicationController
   #to find ids of ancestors from their name or surname
   def ancestor_ids(params)
     return TribeMember.where("name LIKE ? OR surname LIKE ?", "%"+params+"%", "%"+params+"%").ids
+  end
+
+  #to calculte age from date of birth
+  def age(birthdate)
+    now = Time.now
+    now.year - birthdate.year - ((now.month > birthdate.month || (now.month == birthdate.month && now.day >= birthdate.day)) ? 0 : 1)
+  end
+
+  #to regroup each member age in an array
+  def age_array
+    return TribeMember.all.map {|member| age(member.birthdate)}
+  end
+
+  #to calculte an average of an array of number
+  def average(array)
+    array.inject(&:+) / array.length
   end
 
 end
