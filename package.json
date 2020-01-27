@@ -1,5 +1,8 @@
 {
   "name": "dynastipi",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@client-side-validations/client-side-validations": "^0.1.1",
+    "jquery": "^3.4.1"
+  }
 }

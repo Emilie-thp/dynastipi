@@ -1,7 +1,6 @@
 class TribeMembersController < ApplicationController
   
   def index
-
 		if params[:search] 
       #result1 regroups members whose name or surname or birthdate is composed of the searched string
 			result1 = TribeMember.where("name LIKE ? OR surname LIKE ? OR birthdate LIKE ?", "%"+params[:search]+"%", "%"+params[:search]+"%", "%"+params[:search]+"%")
@@ -17,11 +16,25 @@ class TribeMembersController < ApplicationController
   end
 
   def new
+    @tribe_member = TribeMember.new
   end
+
+  def create
+    @tribe_member = TribeMember.new(member_params)
+    if @tribe_member.save
+      flash[:notice] = "Le #{@tribe_member.id}ème membre a été ajouté à la tribu"
+      redirect_to root_path
+    else
+      render "new"
+    end
+  end
+
+
 
   private 
 
-  def tribe_members_params
+
+  def member_params
   	params.require(:tribe_member).permit(:name, :surname, :birthdate, :ancestor, :longitude, :latitude)
 	end
 

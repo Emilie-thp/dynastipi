@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require('@client-side-validations/client-side-validations')
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
