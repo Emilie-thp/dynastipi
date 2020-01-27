@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  surname: MyString
+  birthdate: 2020-01-25
+  ancestor: 1
+  latitude: MyString
+  longitude: MyString
+
+two:
+  name: MyString
+  surname: MyString
+  birthdate: 2020-01-25
+  ancestor: 1
+  latitude: MyString
+  longitude: MyString
