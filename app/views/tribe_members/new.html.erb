@@ -1,14 +1,3 @@
-	<% if @tribe_member.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <p>Nous n'avons pas réussi à créer le nouveau membre pour la (ou les) raison(s) suivante(s) :</p>
-      <ul>
-        <% @tribe_member.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-  <% end %>
-</div>
-
 <div class="container">
 	<br>
 	<center><h3>Créer un nouveau membre</h3></center>
@@ -18,7 +7,7 @@
 
 	<div class="container">
 
-  <%= form_with model: @tribe_member, url: tribe_members_path, local: true do |f| %>
+  <%= form_with model: @tribe_member, url: tribe_members_path, local: true, :validate => true do |f| %>
 
 			<fieldset>
 

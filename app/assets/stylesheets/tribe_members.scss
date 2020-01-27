@@ -65,3 +65,8 @@ hr {
 #map{ 
     height:500px;
 }
+
+.field_with_errors .message {
+    color: red;
+    font-style: italic;
+}
