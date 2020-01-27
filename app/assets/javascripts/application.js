@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require('@client-side-validations/client-side-validations')
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
