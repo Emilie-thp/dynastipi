@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   
   resources :tribe_members, only: [:index, :new, :create]
 
+  get 'tribe_members/stat'
+
 end
