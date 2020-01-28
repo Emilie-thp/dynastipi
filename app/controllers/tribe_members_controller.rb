@@ -34,6 +34,9 @@ class TribeMembersController < ApplicationController
     @age_array = age_array
     @average = average(@age_array)
     @oldest = @age_array.max
+
+    #handmade hash for chartkick as it was not working with the group_by_year line
+    @chart_hash = TribeMember.all.group_by { |u| u.birthdate.year }.map { |k, v| [k, v.count] }.to_h 
   end
 
 
