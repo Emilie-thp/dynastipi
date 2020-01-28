@@ -40,8 +40,14 @@
 		</div>
 		<!--end of col-->
 	</div>
-	<br>
 
+	<!-- search result -->
+	<%if params[:search] %>
+		<br>
+		<p class="lead">Résultat : <%=@final_result.length%> membre(s) trouvé(s) contenant "<%=params[:search]%>."</p>
+	<%else%>
+		<br>
+	<%end%>
 
 	<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
 		<thead>

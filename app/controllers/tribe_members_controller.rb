@@ -7,8 +7,8 @@ class TribeMembersController < ApplicationController
       #result2 regroups members whose ancestor's name or surname is composed of the searched string
       result2 = TribeMember.where(ancestor: ancestor_ids(params[:search]))
       #final_result is combination of result1 and result2
-      final_result = result1.or(result2) 
-      @tribe_members = final_result.page(params[:page])
+      @final_result = result1.or(result2) 
+      @tribe_members = @final_result.page(params[:page])
   	else
       #use of .page(params[:page]) for the pagination gem 'kaminari'
 	  	@tribe_members = TribeMember.page(params[:page])
