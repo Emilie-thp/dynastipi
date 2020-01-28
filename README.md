@@ -14,5 +14,5 @@ Here are the steps to visit the app on your local server :
 6. **$ bundle install**
 7. **$ yarn add jquery**
 8. **$ rails s** 
-9. Go to : https://http://localhost:3000
+9. Go to : //http://localhost:3000
 10. Enjoy!
