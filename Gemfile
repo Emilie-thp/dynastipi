@@ -67,3 +67,9 @@ gem "pry", "~> 0.12.2"
 gem 'client_side_validations'
 
 gem "bootstrap-datepicker-rails", "~> 1.9"
+
+gem "chartkick", "~> 3.3"
+
+gem "groupdate", "~> 4.3"
+
+gem "table_print", "~> 1.5"
