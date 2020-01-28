@@ -1,24 +1,18 @@
-# README
+# Dynastipi
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dynastipi is a technical exercice for job application at KINOBA.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Here are the steps to visit the app on your local server :
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Download the repository 
+2. Go inside the folder ($ cd dynatipi)
+3. $ rails db:setup
+4. Copy-past the existing database directly in the db/ folder
+5. $ rails db:migrate
+6. $ bundle install
+7. $ yarn add jquery
+8. $ rails s 
+9. Go to : https://http://localhost:3000
+10. Enjoy!
