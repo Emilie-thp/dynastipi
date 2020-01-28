@@ -1,6 +1,6 @@
 # Dynastipi
 
-Dynastipi is a technical exercice for job application at KINOBA.
+Dynastipi is a technical exercice for my job application at KINOBA.
 
 ## Installation
 
