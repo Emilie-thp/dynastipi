@@ -1,3 +1,12 @@
+<div class="wrapper gray-wrapper">
+  <% if @tribe_member.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <p class="home-header-font">Merci de choisir une localisation sur la carte (cliquez pour sélectionner l'emplacement)
+      </p>
+  <% end %>
+</div>
+
+
 <div class="container">
 	<br>
 	<center><h3>Créer un nouveau membre</h3></center>
@@ -31,19 +40,15 @@
           <%= f.text_field :ancestor, class: "form-control", placeholder: "Entrer le nom de l'ancêtre" %>		
         </div>
 
-				<div class="form-group">
-					<label for="exampleInputPassword1">Latitude</label>
-          <%= f.text_field :latitude, class: "form-control", placeholder: "Entrer la latitude" %>				
-        </div>
+        <div class="form-group">
+					<label for="exampleInputPassword1">Choisissez une localisation</label>
+					<div id="map"></div>
+				</div>
 
-				<div class="form-group">
-					<label for="exampleInputPassword1">Longitude</label>
-          <%= f.text_field :longitude, class: "form-control", placeholder: "Entrer la longitude" %>				
-        </div>
-
-        <br>
+				<!-- Hidden_fiel to collect the location chosen by the user on the map, thanks to onMapClick fct (see script below) -->
+				<%= f.hidden_field :location, :id => "hiddenLocation", :value => '' %>
         
-          <%= f.submit "Créer le membre", class: 'btn btn-primary' %>
+        <%= f.submit "Créer le membre", class: 'btn btn-primary' %>
 
 			</fieldset>
 		
@@ -55,7 +60,6 @@
 
 <br>
 
-<div id="map"></div>
 
 <br>
 
@@ -77,20 +81,22 @@
 			attribution: 'données © OpenStreetMap/ODbL - rendu OSM France',
 			minZoom: 1,
 			maxZoom: 20
-		}).addTo(mymap);
-          	
-	}
+		}).addTo(mymap);     	
+	};
 
 	// Initialization of popup
 	var popup = L.popup();
 
-	// Function to setup event on click
+	// Function to setup event on click (popup + collect of location_data transfer to hidden_field form)
 	var onMapClick = function onMapClick(e) {
 		popup
     .setLatLng(e.latlng)
-    .setContent("Position choisie : " + e.latlng.toString())
+    .setContent("Latitude : " + e.latlng.lat.toString()+", longitude: "+ e.latlng.lng.toString())
     .openOn(mymap);
-	}
+  // var with latitude and longitude chosen by user
+    var select_loc = e.latlng.lat+","+e.latlng.lng;
+  // put inside the data field of hidden_field in form
+		document.getElementById('hiddenLocation').value = select_loc;	}
 
   window.onload = function(){
 	// Init function is running when DOM is loaded
@@ -98,6 +104,5 @@
 	// Create click event handler
 	mymap.on('click', onMapClick);
 	};
-
 </script>
 
