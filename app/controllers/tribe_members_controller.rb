@@ -20,7 +20,13 @@ class TribeMembersController < ApplicationController
   end
 
   def create
+    #array of latitude and longitude collected from the map thanks to JS
+    loc_array = params[:tribe_member][:location].split(",")
+
     @tribe_member = TribeMember.new(member_params)
+    @tribe_member.latitude = loc_array[0]
+    @tribe_member.longitude = loc_array[1]
+
     if @tribe_member.save
       flash[:notice] = "Le #{@tribe_member.id}ème membre a été ajouté à la tribu"
       redirect_to root_path
@@ -40,11 +46,12 @@ class TribeMembersController < ApplicationController
   end
 
 
+
   private 
 
 
   def member_params
-  	params.require(:tribe_member).permit(:name, :surname, :birthdate, :ancestor, :longitude, :latitude)
+  	params.require(:tribe_member).permit(:name, :surname, :birthdate, :ancestor)
 	end
 
   #to find ids of ancestors from their name or surname
