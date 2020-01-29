@@ -44,7 +44,7 @@
 	<!-- search result -->
 	<%if params[:search] %>
 		<br>
-		<p class="lead">Résultat : <%=@final_result.length%> membre(s) trouvé(s) contenant "<%=params[:search]%>."</p>
+		<p class="lead">Résultat : <%=@final_result.length%> membre(s) trouvé(s) contenant "<%=params[:search]%>".</p>
 	<%else%>
 		<br>
 	<%end%>
@@ -86,7 +86,7 @@
 	<hr>
 	<br>
 	
-	<div id="map">
+	<div id="map-index">
 	</div>
 
 </div>
@@ -109,7 +109,7 @@
 			// Initialization of the map
 			function initMap() {
 				// Creation of "mymap" object to insert it in HTML element with id="map"
-				mymap = L.map('map').setView([lat, lon], 2.3);
+				mymap = L.map('map-index').setView([lat, lon], 2.3);
 				// Serveur location indication for Leaflet 
 				L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 					// Link to data sources 
