@@ -6,4 +6,19 @@ class TribeMember < ApplicationRecord
 	validates :ancestor, presence: { message: "Veuillez choisir un numéro d'ancêtre." }, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: self.all.length }
 	validates :latitude, presence: true
 	validates :longitude, presence: true 
+
+ def self.search(params)
+    #result1 regroups members whose name or surname or birthdate is composed of the searched string
+    result1 = self.where("name LIKE ? OR surname LIKE ? OR birthdate LIKE ?", "%"+params+"%", "%"+params+"%", "%"+params+"%")
+    #result2 regroups members whose ancestor's name or surname is composed of the searched string
+    result2 = self.where(ancestor: TribeMember.ancestor_ids(params))
+    #final_result is combination of result1 and result2
+    final_result = result1.or(result2) 
+  end
+
+  #to find ids of ancestors from their name or surname
+  def self.ancestor_ids(params)
+    return self.where("name LIKE ? OR surname LIKE ?", "%"+params+"%", "%"+params+"%").ids
+  end
+
 end
