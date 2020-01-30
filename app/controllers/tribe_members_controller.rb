@@ -26,7 +26,6 @@ class TribeMembersController < ApplicationController
     @tribe_member = TribeMember.new(member_params)
     @tribe_member.latitude = loc_array[0]
     @tribe_member.longitude = loc_array[1]
-
     if @tribe_member.save
       flash[:notice] = "Le #{@tribe_member.id}ème membre a été ajouté à la tribu"
       redirect_to root_path
