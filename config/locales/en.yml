@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        not_an_integer: "Veuillez indiquer un nombre entier."
+        greater_than: "Veuillez choisir un nombre différent de 0."
+        less_than_or_equal_to: "Veuillez choisir un nombre entre 1 et %{count}."
