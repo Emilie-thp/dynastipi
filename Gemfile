@@ -69,7 +69,7 @@ gem 'client_side_validations'
 
 gem "bootstrap-datepicker-rails", "~> 1.9"
 
-gem "chartkick", "~> 3.3"
+gem "chartkick", "~> 3.4"
 
 gem "groupdate", "~> 4.3"
 
